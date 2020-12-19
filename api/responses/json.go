@@ -9,6 +9,7 @@ import (
 // JSON ...
 func JSON(w http.ResponseWriter, statusCode int, data interface{}) {
 	w.WriteHeader(statusCode)
+	// send resp back to http response
 	err := json.NewEncoder(w).Encode(data)
 	if err != nil {
 		fmt.Fprintf(w, "%s", err.Error())
